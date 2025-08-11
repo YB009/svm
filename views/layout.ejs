@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head', { title: site.name }) %>
+  <body class="min-h-screen bg-neutral-100 text-neutral-900">
+    <%- include('partials/header', { site }) %>
+    <main id="content"><%- body %></main>
+    <%- include('partials/footer', { site }) %>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

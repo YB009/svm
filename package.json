@@ -1,0 +1,26 @@
+{
+    "name": "smv-website",
+    "version": "1.0.0",
+    "description": "Slick Mobile Valets & Detailing — Express + EJS + Tailwind website",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently \"npm:tw:watch\" \"nodemon app.js\"",
+        "start": "NODE_ENV=production node app.js",
+        "tw:build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --minify",
+        "tw:watch": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --watch"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.10",
+        "express": "^4.19.2",
+        "express-ejs-layouts": "^2.5.1"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "concurrently": "^9.0.1",
+        "nodemon": "^3.1.4",
+        "postcss": "^8.4.40",
+        "tailwindcss": "^3.4.17"
+    }
+}

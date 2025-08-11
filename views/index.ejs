@@ -1,0 +1,152 @@
+<section class="relative bg-smv-dark text-white">
+  <div class="section grid items-center gap-10 md:grid-cols-2">
+    <div>
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <%= site.name %>
+      </h1>
+      <p class="mb-6 text-lg opacity-90">
+        Premium mobile valeting & detailing. We come to you for your cars, vans & work vehicles.
+      </p>
+      <div class="mb-6 flex flex-wrap gap-2">
+        <% site.usp.forEach(u => { %>
+          <span class="rounded-full bg-white/10 px-3 py-1 text-sm"><%= u %></span>
+        <% }) %>
+      </div>
+      <a href="#contact" class="btn">Book a Service</a>
+    </div>
+    <div class="relative">
+      <img src="/images/logo.jpg" alt="S.M.V Logo" class="mx-auto w-full max-w-md drop-shadow" />
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <h2 class="mb-8 text-3xl font-bold">Services</h2>
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <% site.services.forEach(s => { %>
+      <div class="card">
+        <h3 class="mb-2 text-lg font-semibold"><%= s %></h3>
+        <p class="text-sm opacity-80">
+          Quality products, careful process, great results. Ask about packages & add-ons.
+        </p>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+<!-- ===== NEW: Gallery ===== -->
+<section id="gallery" class="section bg-neutral-50">
+  <div class="mb-6 flex items-end justify-between">
+    <div>
+      <h2 class="text-3xl font-bold">Recent Work</h2>
+      <p class="text-neutral-600">A few snapshots from our mobile valets & detailing jobs.</p>
+    </div>
+    <a href="#contact" class="hidden sm:inline-flex btn">Plan Your Valet</a>
+  </div>
+
+  <!-- grid -->
+  <div id="smv-gallery" data-gallery class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <% site.gallery.forEach((g, i) => { %>
+      <button type="button"
+              class="group relative overflow-hidden rounded-2xl bg-neutral-200 shadow-soft focus:outline-none focus-visible:ring-4 focus-visible:ring-smv-red/40"
+              data-index="<%= i %>">
+        <img src="<%= g.src %>"
+             alt="<%= g.alt %>"
+             loading="lazy" decoding="async"
+             class="h-40 w-full object-cover transition duration-300 group-hover:scale-105 sm:h-44 md:h-48" />
+        <div class="pointer-events-none absolute inset-0 hidden items-center justify-center bg-black/30 text-white backdrop-blur-[1px] group-hover:flex">
+          <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Tap to expand</span>
+        </div>
+      </button>
+    <% }) %>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden">
+    <div class="lightbox-backdrop absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
+
+    <div class="relative z-10 flex h-full w-full items-center justify-center p-4">
+      <button id="lightbox-close" aria-label="Close"
+        class="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white backdrop-blur hover:bg-white/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40">✕</button>
+
+      <button id="lightbox-prev" aria-label="Previous"
+        class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white backdrop-blur hover:bg-white/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40">◀</button>
+
+      <figure class="max-h-full max-w-6xl">
+        <img id="lightbox-image" src="" alt="" class="mx-auto max-h-[75vh] w-auto rounded-2xl shadow-soft" />
+        <figcaption id="lightbox-caption" class="mt-3 text-center text-sm text-neutral-200"></figcaption>
+      </figure>
+
+      <button id="lightbox-next" aria-label="Next"
+        class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white backdrop-blur hover:bg-white/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40">▶</button>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="section bg-white">
+  <h2 class="mb-8 text-3xl font-bold">Reviews</h2>
+  <div class="grid gap-6 md:grid-cols-2">
+    <% site.reviews.forEach(r => { %>
+      <article class="card">
+        <div class="mb-3 flex items-center justify-between">
+          <div class="font-semibold"><%= r.author %></div>
+          <div class="text-xs opacity-60"><%= r.ago %></div>
+        </div>
+        <div class="mb-2">
+          <% for (let i = 0; i < r.rating; i++) { %>
+            <span aria-hidden="true">⭐</span>
+          <% } %>
+          <span class="sr-only"><%= r.rating %> stars</span>
+        </div>
+        <p class="whitespace-pre-line leading-relaxed"><%= r.text %></p>
+      </article>
+    <% }) %>
+  </div>
+  <p class="mt-6 text-sm opacity-70">
+    These highlights are from S.M.V’s Google reviews and customer feedback provided. More reviews on our social pages.
+  </p>
+</section>
+
+<section id="location" class="section">
+  <h2 class="mb-6 text-3xl font-bold">Location</h2>
+  <div class="card p-0 overflow-hidden">
+    <div class="p-6 md:p-8">
+      <p>Use the map to see our base area and get directions.</p>
+    </div>
+    <div class="h-80 md:h-[420px]">
+      <iframe
+        title="S.M.V on Google Maps"
+        src="<%= site.map.embedSrc %>"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section bg-white">
+  <h2 class="mb-6 text-3xl font-bold">Contact & Booking</h2>
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="card">
+      <p class="mb-3">
+        Message us on Facebook or Instagram for quickest response. Tell us your vehicle, location, and the service you want.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a class="btn" href="<%= site.socials.facebook %>" target="_blank">
+          <img src="/images/social-facebook.svg" class="h-5" alt="" /> Message on Facebook
+        </a>
+        <a class="btn" href="<%= site.socials.instagram %>" target="_blank">
+          <img src="/images/social-instagram.svg" class="h-5" alt="" /> DM on Instagram
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <form class="grid gap-4" action="https://formspree.io/f/mayvlxyz" method="POST">
+        <input class="rounded-xl border border-neutral-300 px-4 py-3" name="name" placeholder="Your name" required />
+        <input class="rounded-xl border border-neutral-300 px-4 py-3" name="email" type="email" placeholder="Email" required />
+        <textarea class="rounded-xl border border-neutral-300 px-4 py-3" name="message" rows="4" placeholder="Vehicle, location & service details"></textarea>
+        <button class="btn" type="submit">Send enquiry</button>
+        <p class="text-xs opacity-70">This demo form uses Formspree. Replace with your preferred handler.</p>
+      </form>
+    </div>
+  </div>
+</section>

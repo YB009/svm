@@ -1,0 +1,32 @@
+<footer class="mt-24 bg-neutral-900 text-neutral-200">
+    <div class="section grid gap-8 md:grid-cols-3">
+      <div>
+        <img src="/images/logo.jpg" class="h-10 mb-4" alt="S.M.V logo" />
+        <p class="text-sm opacity-80">Mobile valeting & detailing across the local area. Attention to detail, fair pricing, friendly service.</p>
+      </div>
+      <div>
+        <h4 class="mb-3 font-semibold text-white">Quick links</h4>
+        <ul class="space-y-2">
+          <li><a href="#services" class="hover:underline">Services</a></li>
+          <li><a href="#reviews" class="hover:underline">Reviews</a></li>
+          <li><a href="#location" class="hover:underline">Location</a></li>
+          <li><a href="#contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="mb-3 font-semibold text-white">Social</h4>
+        <div class="flex gap-4">
+          <a href="<%= site.socials.facebook %>" target="_blank" class="inline-flex items-center gap-2 hover:opacity-80">
+            <img src="/images/social-facebook.svg" class="h-5" alt="Facebook" /> Facebook
+          </a>
+          <a href="<%= site.socials.instagram %>" target="_blank" class="inline-flex items-center gap-2 hover:opacity-80">
+            <img src="/images/social-instagram.svg" class="h-5" alt="Instagram" /> Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 py-6 text-center text-xs opacity-70">
+      © <%= new Date().getFullYear() %> <%= site.name %>. All rights reserved.
+    </div>
+  </footer>
+  
