@@ -1,15 +1,15 @@
 <header class="bg-smv-dark text-white">
-  <div class="section flex items-center justify-between">
+  <div class="section flex items-center justify-between gap-4">
     <a class="flex items-center gap-3" href="/">
-      <img src="/images/logo.jpg" alt="<%= site.short %> logo" class="h-12 w-auto" />
+      <img src="/images/logo.jpg" alt="<%= site.short %> logo" class="h-8 w-auto sm:h-12" />
       <span class="sr-only"><%= site.name %></span>
     </a>
-    <nav class="flex items-center gap-6">
-      <a href="#services" class="hover:opacity-80">Services</a>
-      <a href="#gallery" class="hover:opacity-80">Gallery</a>
-      <a href="#reviews" class="hover:opacity-80">Reviews</a>
-      <a href="#location" class="hover:opacity-80">Location</a>
-      <a href="#contact" class="btn">Book a Service</a>
+    <nav class="flex items-center gap-2 sm:gap-6">
+      <a href="#services" class="text-sm sm:text-base hover:opacity-80">Services</a>
+      <a href="#gallery" class="text-sm sm:text-base hover:opacity-80">Gallery</a>
+      <a href="#reviews" class="text-sm sm:text-base hover:opacity-80">Reviews</a>
+      <a href="#location" class="text-sm sm:text-base hover:opacity-80">Location</a>
+      <a href="#contact" class="btn text-sm sm:text-base px-3 sm:px-5">Book a Service</a>
     </nav>
   </div>
 </header>

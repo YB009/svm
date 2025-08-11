@@ -1,32 +1,32 @@
 <section class="relative bg-smv-dark text-white">
-  <div class="section grid items-center gap-10 md:grid-cols-2">
-    <div>
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+  <div class="section grid items-center gap-8 md:gap-10 md:grid-cols-2">
+    <div class="order-2 md:order-1">
+      <h1 class="mb-4 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
         <%= site.name %>
       </h1>
-      <p class="mb-6 text-lg opacity-90">
+      <p class="mb-6 text-base sm:text-lg opacity-90">
         Premium mobile valeting & detailing. We come to you for your cars, vans & work vehicles.
       </p>
       <div class="mb-6 flex flex-wrap gap-2">
         <% site.usp.forEach(u => { %>
-          <span class="rounded-full bg-white/10 px-3 py-1 text-sm"><%= u %></span>
+          <span class="rounded-full bg-white/10 px-3 py-1 text-xs sm:text-sm"><%= u %></span>
         <% }) %>
       </div>
       <a href="#contact" class="btn">Book a Service</a>
     </div>
-    <div class="relative">
-      <img src="/images/logo.jpg" alt="S.M.V Logo" class="mx-auto w-full max-w-md drop-shadow" />
+    <div class="relative order-1 md:order-2">
+      <img src="/images/logo.jpg" alt="S.M.V Logo" class="mx-auto w-full max-w-xs sm:max-w-md drop-shadow" />
     </div>
   </div>
 </section>
 
 <section id="services" class="section">
-  <h2 class="mb-8 text-3xl font-bold">Services</h2>
+  <h2 class="mb-8 text-2xl sm:text-3xl font-bold">Services</h2>
   <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     <% site.services.forEach(s => { %>
       <div class="card">
-        <h3 class="mb-2 text-lg font-semibold"><%= s %></h3>
-        <p class="text-sm opacity-80">
+        <h3 class="mb-2 text-base sm:text-lg font-semibold"><%= s %></h3>
+        <p class="text-xs sm:text-sm opacity-80">
           Quality products, careful process, great results. Ask about packages & add-ons.
         </p>
       </div>
@@ -36,12 +36,12 @@
 
 <!-- ===== NEW: Gallery ===== -->
 <section id="gallery" class="section bg-neutral-50">
-  <div class="mb-6 flex items-end justify-between">
+  <div class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
     <div>
-      <h2 class="text-3xl font-bold">Recent Work</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold">Recent Work</h2>
       <p class="text-neutral-600">A few snapshots from our mobile valets & detailing jobs.</p>
     </div>
-    <a href="#contact" class="hidden sm:inline-flex btn">Plan Your Valet</a>
+    <a href="#contact" class="btn self-start sm:self-auto">Plan Your Valet</a>
   </div>
 
   <!-- grid -->
@@ -84,12 +84,12 @@
 </section>
 
 <section id="reviews" class="section bg-white">
-  <h2 class="mb-8 text-3xl font-bold">Reviews</h2>
+  <h2 class="mb-8 text-2xl sm:text-3xl font-bold">Reviews</h2>
   <div class="grid gap-6 md:grid-cols-2">
     <% site.reviews.forEach(r => { %>
       <article class="card">
         <div class="mb-3 flex items-center justify-between">
-          <div class="font-semibold"><%= r.author %></div>
+          <div class="font-semibold text-sm sm:text-base"><%= r.author %></div>
           <div class="text-xs opacity-60"><%= r.ago %></div>
         </div>
         <div class="mb-2">
@@ -98,22 +98,22 @@
           <% } %>
           <span class="sr-only"><%= r.rating %> stars</span>
         </div>
-        <p class="whitespace-pre-line leading-relaxed"><%= r.text %></p>
+        <p class="whitespace-pre-line leading-relaxed text-sm sm:text-base"><%= r.text %></p>
       </article>
     <% }) %>
   </div>
-  <p class="mt-6 text-sm opacity-70">
+  <p class="mt-6 text-xs sm:text-sm opacity-70">
     These highlights are from S.M.V’s Google reviews and customer feedback provided. More reviews on our social pages.
   </p>
 </section>
 
 <section id="location" class="section">
-  <h2 class="mb-6 text-3xl font-bold">Location</h2>
+  <h2 class="mb-6 text-2xl sm:text-3xl font-bold">Location</h2>
   <div class="card p-0 overflow-hidden">
-    <div class="p-6 md:p-8">
+    <div class="p-4 sm:p-6 md:p-8">
       <p>Use the map to see our base area and get directions.</p>
     </div>
-    <div class="h-80 md:h-[420px]">
+    <div class="h-64 sm:h-80 md:h-[420px]">
       <iframe
         title="S.M.V on Google Maps"
         src="<%= site.map.embedSrc %>"
@@ -124,13 +124,13 @@
 </section>
 
 <section id="contact" class="section bg-white">
-  <h2 class="mb-6 text-3xl font-bold">Contact & Booking</h2>
+  <h2 class="mb-6 text-2xl sm:text-3xl font-bold">Contact & Booking</h2>
   <div class="grid gap-6 md:grid-cols-2">
     <div class="card">
       <p class="mb-3">
         Message us on Facebook or Instagram for quickest response. Tell us your vehicle, location, and the service you want.
       </p>
-      <div class="flex flex-wrap gap-3">
+      <div class="flex flex-col sm:flex-row flex-wrap gap-3">
         <a class="btn" href="<%= site.socials.facebook %>" target="_blank">
           <img src="/images/social-facebook.svg" class="h-5" alt="" /> Message on Facebook
         </a>
