@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "dev": "concurrently \"npm:tw:watch\" \"nodemon app.js\"",
-        "start": "NODE_ENV=production node app.js",
+        "start": "node app.js",
         "tw:build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --minify",
         "tw:watch": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --watch"
     },
